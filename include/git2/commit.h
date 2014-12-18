@@ -363,6 +363,27 @@ GIT_EXTERN(int) git_commit_amend(
 	const char *message,
 	const git_tree *tree);
 
+/**
+ * Create a new commit from the current state and update the current branch
+ *
+ * Creates a new commit, similarly to the other functions. This
+ * variant takes the current state of the repository instead of
+ * arguments.
+ *
+ * The current branch will be updated. The tree will be created from
+ * the repository's index. The parents will be taken from HEAD and
+ * MERGE_HEAD, if applicable.
+ *
+ * @see git_commit_create
+ */
+GIT_EXTERN(int) git_commit_create_fromstate(
+	git_oid *id,
+	git_repository *repo,
+	const git_signature *author,
+	const git_signature *committer,
+	const char *message_encoding,
+	const char *message);
+
 /** @} */
 GIT_END_DECL
 #endif
