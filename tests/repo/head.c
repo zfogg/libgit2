@@ -391,7 +391,7 @@ void test_repo_head__branch_birth(void)
 	cl_assert_equal_i(nentries, nentries_after);
 
 	msg = "message 2";
-	cl_git_pass(git_commit_create(&id, repo, "HEAD", sig, sig, NULL, msg, tree, 0, NULL));
+	cl_git_pass(git_commit_create_on(&id, repo, "HEAD", sig, sig, NULL, msg, tree, 0, NULL));
 
 	git_tree_free(tree);
 
@@ -449,7 +449,7 @@ void test_repo_head__symref_chain(void)
 	cl_assert_equal_i(nentries_master, entrycount(repo, "refs/heads/master"));
 
 	msg = "message 2";
-	cl_git_pass(git_commit_create(&id, repo, "HEAD", sig, sig, NULL, msg, tree, 0, NULL));
+	cl_git_pass(git_commit_create_on(&id, repo, "HEAD", sig, sig, NULL, msg, tree, 0, NULL));
 	git_tree_free(tree);
 
 	cl_assert_equal_i(1, entrycount(repo, "refs/heads/foo"));

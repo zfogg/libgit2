@@ -888,7 +888,7 @@ static int rebase_commit_merge(
 		message = git_commit_message(current_commit);
 	}
 
-	if ((error = git_commit_create(commit_id, rebase->repo, NULL, author,
+	if ((error = git_commit_create(commit_id, rebase->repo, author,
 			committer, message_encoding, message, tree, 1,
 			(const git_commit **)&head_commit)) < 0 ||
 		(error = git_commit_lookup(&commit, rebase->repo, commit_id)) < 0 ||
