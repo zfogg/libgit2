@@ -43,6 +43,7 @@ OPTION( CURL			"User curl for HTTP if available" ON)
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 	SET( USE_ICONV ON )
+	SET( CMAKE_MACOSX_RPATH 1 )
 	FIND_PACKAGE(Security)
 	FIND_PACKAGE(CoreFoundation REQUIRED)
 ENDIF()
